@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AsciiDoc Viewer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+    <link rel="stylesheet" href="css/asciidoctor.css">
+  	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  	<script src="js/jquery.autosize.min.js"></script>
+    <script src="js/asciidoctor-all.js"></script>
+    <script src="js/convert.js"></script>
+    <link rel="stylesheet" href="css/default.css">
+    
+    <script type="text/javascript">
+	    $(document).ready(function() {
+	    	IGELS.convertInstantly();
+	    });
+	</script>
+  </head>
+  <body style="height: 97%; margin: 1em 10px 1em 10px; background:#eff3f9 url('images/bg-f.png') repeat-x 0 -40px;">
+		<table class="igels-maintable">
+			<tr>
+				<td class="igels-col">
+					<textarea id="input" class="igels-editor" oninput="IGELS.convert();">
+This is a simple http://www.methods.co.nz/asciidoc[AsciiDoc] viewer.
+
+- Type some AsciiDoc text in the left window
+
+- See the HTML in the right
+
+mailto:asciidocigels@gmail.com[Email me if any comments]
+
+Here is a few examples of AsciiDoc format:
+
+== Header Level 1
+Text.
+
+=== Level 2
+Text.
+
+== Blocks
+
+.Optional Title
+[source,perl]
+----
+# *Source* block
+# Use: highlight code listings
+# (require `source-highlight` or `pygmentize`)
+use DBI;
+my $dbh = DBI->connect('...',$u,$p)
+    or die "connect: $dbh->errstr";
+----
+
+== Text
+
+normal, _italic_, *bold*, +mono+, ``double quoted'', `single quoted', normal, ^super^, ~sub~.
+					</textarea><br/>
+				</td>
+				<td class="igels-col">
+					<div id="content" class="igels-preview"></div>
+				</td>
+			</tr>
+		</table>
+  </body>
+</html>
